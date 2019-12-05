@@ -1,0 +1,17 @@
+# vim: ts=4 sw=4 sts=4
+################################################################################
+## Script    : bashrc_path
+## Name      : bash 設定ファイル [パス設定]
+## Version   : 0.0.1
+## Copyright : 2018-2019  Nomura Kei
+## License   : BSD-2-Clause
+################################################################################
+[[ "$-" != *i* ]] && return
+echo  "[load] ${BASH_SOURCE:-$0}"
+
+PATH=.:~/bin
+PATH=${PATH}:/bin:/sbin
+PATH=${PATH}:/usr/bin:/usr/sbin
+PATH=${PATH}:/usr/local/bin:/usr/local/sbin
+export PATH
+

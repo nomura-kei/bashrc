@@ -1,0 +1,37 @@
+# vim: ts=4 sw=4 sts=4 
+################################################################################
+## Script    : bashrc_shopt
+## Name      : bash 設定ファイル [shopt オプション]
+## Version   : 0.0.1
+## Copyright : 2018-2019  Nomura Kei
+## License   : BSD-2-Clause
+################################################################################
+[[ "$-" != *i* ]] && return
+echo  "[load] ${BASH_SOURCE:-$0}"
+
+# shopt 設定
+#   -s 設定を有効
+#   -u 設定を無効
+#
+# shopt -s autocd		# PATHを指定すると cd の引数として指定されたものとみなす。
+# shopt -s cdapell		# スペルミスがあっても自動補正して cd する。
+# shopt -s checkwinsize	# コマンド実行の度にターミナルのウィンドウサイズを確認する。
+# shopt -s cmdhist		# 複数行コマンド1つの履歴エントリに登録する。
+# shopt -s direxpand	# tab によるパス補完時に変数を展開する。
+# shopt -s dirspell		# ディレクトリのスペルミスがあっても自動補完する。
+# shopt -s dotglob		# . ではじまるファイルもワイルドカードでマッチする。
+# shopt -s extglob		# 拡張パターンマッチング機能を有効にする。
+# shopt -s globstar		# ** パターンがパス展開で使われる場合、深さ0以上のディレクトリ、
+#						# サブディレクトリのファイルにマッチする。直後に / が続く場合は、
+#			 			# ディレクトリとサブディレクトリのみにマッチする。
+# shopt -s histhappend	# シェル終了時に HISTFILE で指定されたファイルに履歴を追加する。
+# shopt -s hostcomplete	# @を含む単語を補完する際、ホスト名補完する。
+# shopt -s huponexit	# 終了時ジョブに対して SIGHUB シグナルを送信する。
+# shopt -s interactive_comments # 対話モードで # 以降を無視する。
+# shopt -s lithist		# cmdhist が有効時、複数行のコマンドをセミコロンではなく
+#						# 改行区切りで履歴を保存する。
+# shopt -s progcomp		# プログラム補完機能が有効になる。
+# shopt -s xpg_echo		# echo がデフォルトでバックスラッシュによるエスケープシーケンスを展開する。
+shopt -s cmdhist
+shopt -s lithist
+

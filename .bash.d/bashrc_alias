@@ -1,0 +1,18 @@
+# vim: ts=4 sw=4 sts=4
+################################################################################
+## Script    : bashrc_alias
+## Name      : bash 設定ファイル [エイリアス設定]
+## Version   : 0.0.1
+## Copyright : 2018-2019  Nomura Kei
+## License   : BSD-2-Clause
+################################################################################
+[[ "$-" != *i* ]] && return
+echo  "[load] ${BASH_SOURCE:-$0}"
+
+alias ls='ls -F --color=auto  --show-control-chars'
+alias ll='ls -l'
+alias la='ls -a'
+alias cp='cp -i'
+alias mv='cp -i'
+alias rm='rm -i'
+alias grep='grep --color=auto'
