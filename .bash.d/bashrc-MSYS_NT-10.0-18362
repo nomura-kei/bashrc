@@ -9,5 +9,6 @@
 [[ "$-" != *i* ]] && return
 echo  "[load] ${BASH_SOURCE:-$0}"
 
-export PATH=${PATH}:/mingw64/bin
-
+PATH=${PATH}:/mingw64/bin
+PATH=${PATH}:/c/Program\ Files\ \(x86\)/Google/Chrome/Application
+export PATH
