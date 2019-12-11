@@ -1,0 +1,13 @@
+/*
+!/.bash.d
+!/.bash.d/*
+!/.bashrc
+!/.gitignore
+!/.vim
+!/.vim/*
+!/.vim/settings
+!/.vim/rc
+!/.vimrc
+/.vim/cache
+/.vim/.cache
+
