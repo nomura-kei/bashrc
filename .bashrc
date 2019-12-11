@@ -13,30 +13,33 @@
 
 
 # 各種設定ファイルを読み込む。
-for CONF_FILE in `\ls -1 .bash.d/bashrc_* 2> /dev/null`; do
+for CONF_FILE in `\ls -1 ~/.bash.d/bashrc_* 2> /dev/null`; do
 	. ${CONF_FILE}
 done
 
 
 # システムに依存のファイルを読み込む
 UNAME=`uname`
-for CONF_FILE in `\ls -1 .bash.d/bashrc-${UNAME}* 2> /dev/null`; do
+for CONF_FILE in `\ls -1 ~/.bash.d/bashrc-${UNAME}* 2> /dev/null`; do
 	. ${CONF_FILE}
 done
 
 
 # 端末に応じた設定 ファイルを読み込む
-for CONF_FILE in `\ls -1 .bash.d/bashrc-${TERM}* 2> /dev/null`; do
+for CONF_FILE in `\ls -1 ~/.bash.d/bashrc-${TERM}* 2> /dev/null`; do
 	. ${CONF_FILE}
 done
 
 
 # ホストに応じた設定 ファイルを読み込む
 HOSTNAME=`hostname`
-for CONF_FILE in `\ls -1 .bashrc/bashrc-${HOSTNAME}* 2> /dev/null`; do
+for CONF_FILE in `\ls -1 ~/.bashrc/bashrc-${HOSTNAME}* 2> /dev/null`; do
 	. ${CONF_FILE}
 done
 
+
+# その他設定
+export EDITOR=vim
 
 
 # Completion options

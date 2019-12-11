@@ -34,5 +34,4 @@ echo  "[load] ${BASH_SOURCE:-$0}"
 #
 # 上記以外の設定については、help set で確認のこと。
 #
-set -o vi
 
