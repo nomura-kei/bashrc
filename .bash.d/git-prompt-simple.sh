@@ -9,28 +9,14 @@
 [[ "$-" != *i* ]] && return
 echo  "[load] ${BASH_SOURCE:-$0}"
 
-GIT_PS1_DIR=~/.tmp/git_ps1/`tty`
-GIT_PS1_ENV=${GIT_PS1_DIR}/git_ps1.env
-mkdir -p ${GIT_PS1_DIR}
-touch    ${GIT_PS1_ENV}
-
 __git_ps1() {
-	. ${GIT_PS1_ENV}
-	if [ "${LAST_PWD}" != "${PWD}" ]; then
-		BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-		STATUS=
-		if [ ! -z $BRANCH ] && [ ! -z "$(git status --short)" ]; then
-			STATUS=!
-		fi
-cat <<EOF > ${GIT_PS1_ENV}
-BRANCH=${BRANCH}
-STATUS=${STATUS}
-LAST_PWD=${PWD}
-EOF
+BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+if [ ! -z $BRANCH ]; then
+	STATUS=
+	if [ ! -z "$(git status --short)" ]; then
+		STATUS=!
 	fi
-	if [ ! -z $BRANCH ]; then
-		echo -n -e "\e[33m(${BRANCH}\e[31m${STATUS})"
-	fi
+	echo -n -e "\e[33m(${BRANCH}\e[31m${STATUS}\e[33m)"
+fi
 }
-
 
