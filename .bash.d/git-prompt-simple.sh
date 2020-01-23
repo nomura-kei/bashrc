@@ -9,14 +9,15 @@
 [[ "$-" != *i* ]] && return
 echo  "[load] ${BASH_SOURCE:-$0}"
 
-__git_ps1() {
+__git_ps1_branch() {
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
 if [ ! -z $BRANCH ]; then
-	STATUS=
-	if [ ! -z "$(git status --short)" ]; then
-		STATUS=!
-	fi
-	echo -n -e "\e[33m(${BRANCH}\e[31m${STATUS}\e[33m)"
+	echo -n "${BRANCH}"
 fi
 }
-
+__git_ps1_status() {
+	if [ ! -z "$(git status --short 2> /dev/null)" ]; then
+		STATUS=!
+	fi
+	echo -n "${STATUS}"
+}

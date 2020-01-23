@@ -87,5 +87,6 @@ fi
 #	SGR			: \e[nm
 #
 #
-PS1='\[\e[0m\e[36m\][\u@\h:\W$(__git_ps1 " (%s)")\e[36m]$ \[\e[0m\e[37m\]'
+#PS1='\[\e[0m\e[36m\][\u@\h:\W$(__git_ps1 " (%s)")\e[36m]$ \[\e[0m\e[37m\]'
+PS1='\[\e[0m\e[36m\][\u@\h:\W(\[\e[33m\]$(__git_ps1_branch " (%s)")\[\e[31m\]$(__git_ps1_status " (%s)")\[\e[36m\])]$ \[\e[0m\e[37m\]'
 PS2='>'
