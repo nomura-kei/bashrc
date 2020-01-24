@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <CUnit/CUnit.h>
+#include <CUnit/Console.h>
+
+#include "test_thread.h"
+
+
+int main(void)
+{
+	test_thread();
+	return 0;
+}
+int t(void)
+{
+	CU_pSuite testSuite;
+
+	CU_initialize_registry();
+	testSuite = CU_add_suite("libutil.so",NULL,NULL);
+
+	CU_add_test(testSuite, "thread", test_thread);
+
+	CU_console_run_tests();
+	CU_cleanup_registry();
+
+	return 0;
+}
