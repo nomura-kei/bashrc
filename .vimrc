@@ -55,7 +55,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,sjis,iso-2202-jp-3,euc-jisx0213,guess,ucs-bom,ucs-2le,ucs-2
 set fileformat=unix
 set ts=4 sw=4 sts=4
-set backupdir=~/.tmp/vim-backup
-set undodir=~/.tmp/vim-backup
+"set backupdir=~/.tmp/vim-backup
+"set undodir=~/.tmp/vim-backup
 set backspace=indent,eol,start
 
