@@ -35,7 +35,7 @@ fi
 #	\W		: 作業ディレクトリ[当該ディレクトリのみ]
 #	\!		: コマンド履歴番号
 #	\#		: コマンド番号
-#	$		: 実行UIDが0の場合#、それ以外の場合$
+#	\$		: 実行UIDが0の場合#、それ以外の場合$
 #	\nnn	: 8進数nnnに対応する文字
 #	\[		: 非表示文字シーケンス開始
 #	\]		: 非表示文字シーケンス終了
@@ -87,5 +87,21 @@ fi
 #	SGR			: \e[nm
 #
 #
-PS1='\[\e[0m\e[36m\][\u@\h:\W(\[\e[33m\]$(__git_ps1_branch " (%s)")\[\e[31m\]$(__git_ps1_status " (%s)")\[\e[36m\])]\$ \[\e[0m\e[37m\]'
+C_BLK='\[\e[30m\]'
+C_RED='\[\e[31m\]'
+C_GRN='\[\e[32m\]'
+C_YEL='\[\e[33m\]'
+C_BLU='\[\e[34m\]'
+C_MAG='\[\e[35m\]'
+C_CYN='\[\e[36m\]'
+C_WHT='\[\e[37m\]'
+C_CLR='\[\e[39m\]'
+
+PS1_PROMPT=
+PS1_PROMPT="${PS1_PROMPT}${C_CYN}[\u@\h:\W("
+PS1_PROMPT="${PS1_PROMPT}${C_YEL}\$(__git_ps1_branch ' (%s)')"
+PS1_PROMPT="${PS1_PROMPT}${C_RED}\$(__git_ps1_status ' (%s)')"
+PS1_PROMPT="${PS1_PROMPT}${C_CYN})]\$ "
+PS1_PROMPT="${PS1_PROMPT}${C_CLR}"
+PS1="${PS1_PROMPT}"
 PS2='>'

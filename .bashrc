@@ -40,6 +40,8 @@ done
 
 # その他設定
 export EDITOR=vim
+export LANG=ja_JP.UTF-8
+tabs -4
 
 
 # Completion options

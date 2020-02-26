@@ -51,6 +51,7 @@ command Msys2 terminal
 
 set splitbelow
 set number
+set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,iso-2202-jp-3,euc-jisx0213,guess,ucs-bom,ucs-2le,ucs-2
 set fileformat=unix

@@ -9,7 +9,7 @@
 [[ "$-" != *i* ]] && return
 echo  "[load] ${BASH_SOURCE:-$0}"
 
-alias ls='ls -F --color=auto  --show-control-chars'
+alias ls='ls -F --color=auto  --show-control-chars --time-style="+%Y-%m-%d %H:%M:%S"'
 alias ll='ls -l'
 alias la='ls -a'
 alias cp='cp -i'
