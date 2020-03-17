@@ -59,4 +59,3 @@ set ts=4 sw=4 sts=4
 "set backupdir=~/.tmp/vim-backup
 "set undodir=~/.tmp/vim-backup
 set backspace=indent,eol,start
-
