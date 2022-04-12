@@ -1,0 +1,16 @@
+# vim: ts=4 sw=4 sts=4 ff=unix fenc=utf-8:
+[[ "$-" != *i* ]] && return
+echo "[load] ${BASH_SOURCE:-$0}"
+
+# エイリアス設定
+alias ls='ls -F --color=auto --show-control-chars --time-style="+Y-%m-%d %H:%M:%S"'
+alias ll='ls -l'
+alias la='ls -A'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias vi='vim'
+

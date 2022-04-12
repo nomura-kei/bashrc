@@ -1,0 +1,24 @@
+# vim: ts=4 sw=4 sts=4 ff=unix fenc=utf-8:
+[[ "$-" != *i* ]] && return
+echo "[load] ${BASH_SOURCE:-$0}"
+
+# コマンド履歴設定
+# shopt は、com-shopt にて設定
+#
+# shopt -s checkwinsize			# コマンド実行の度にターミナルのウィンドウサイズを確認する。
+# shopt -s cmdhist				# 複数行コマンド1つの履歴エントリに登録する。
+# shopt -s histappend			# シェル終了時に HISTFILE で指定されたファイルに履歴を追加する。
+# shopt -s lithist				# cmdhist が有効時、複数行のコマンドをセミコロンではなく
+#								# 改行区切りで履歴を保存する。
+
+# コマンド履歴制御
+# ignorespace  : 空白文字で始まる行を保存しない。
+# ignoredups   : 1つ前の履歴エントリと一致する行を保存しない。
+# ignoreboth   : ignorespace + ignoredups
+# erasedups    : 同じ過去のコマンド履歴をすべて削除する。
+HISTCONTROL=ignoreboth
+
+# コマンド履歴の数、ファイルサイズ設定
+HISTSIZE=1000
+HISTFILESIZE=2000
+

@@ -1,20 +1,12 @@
-# vim: ts=4 sw=4 sts=4
-################################################################################
-## Script    : bashrc_prompt
-## Name      : bash 設定ファイル [プロンプト設定]
-## Version   : 0.0.1
-## Copyright : 2018-2019  Nomura Kei
-## License   : BSD-2-Clause
-################################################################################
+# vim: ts=4 sw=4 sts=4 ff=unix fenc=utf-8:
 [[ "$-" != *i* ]] && return
-echo  "[load] ${BASH_SOURCE:-$0}"
+echo "[load] ${BASH_SOURCE:-$0}"
 
 # git-prompt.sh 読み込み
 SCRIPT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 if [ -f "${SCRIPT_DIR}/git-prompt-simple.sh" ]; then
 	. "${SCRIPT_DIR}/git-prompt-simple.sh"
 fi
-
 
 # プロンプト設定
 #	PS1		: 通常プロンプト定義
@@ -75,7 +67,7 @@ fi
 #	n 行下移動	: \e[nE
 #	n 行上移動	: \e[nF
 #	n 列に移動	: \e[nG
-#	n,m に移動	: \e[n;;mH  or \e[n;mf
+#	n,m に移動	: \e[n;;mH	or \e[n;mf
 #	消去		: \e[0J		カーソル以降を消去
 #				  \e[1J		カーソル以前を消去
 #				  \e[2J		全体を消去
@@ -83,7 +75,7 @@ fi
 #				  \e[1K		カーソル以前を消去
 #				  \e[2K		全体を消去
 #	スクロール	: \e[nS		n 行分次にスクロール
-#				  \e[nT		n 行分前にスクロール
+#				  \e[nT	   n 行分前にスクロール
 #	SGR			: \e[nm
 #
 #
@@ -105,3 +97,4 @@ PS1_PROMPT="${PS1_PROMPT}${C_CYN})]\\$ "
 PS1_PROMPT="${PS1_PROMPT}${C_CLR}"
 PS1="${PS1_PROMPT}"
 PS2='>'
+
