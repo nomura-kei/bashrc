@@ -2,11 +2,16 @@
 [[ "$-" != *i* ]] && return
 echo "[load] ${BASH_SOURCE:-$0}"
 
-# git-prompt.sh 読み込み
-SCRIPT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-if [ -f "${SCRIPT_DIR}/git-prompt-simple.sh" ]; then
-	. "${SCRIPT_DIR}/git-prompt-simple.sh"
-fi
+# git ブランチ表示用
+function __ps1_git_branch() {
+	git rev-parse --abbrev-ref HEAD 2>/dev/null|sed "s/^\(.*\)$/(\1)/"
+}
+
+# git 状態表示用 (変更発生時 ! を表示する)
+function __ps1_git_status() {
+	git status --short 2>/dev/null| head -n 1 | sed "s/^.*$/!/"
+}
+
 
 # プロンプト設定
 #	PS1		: 通常プロンプト定義
@@ -90,10 +95,10 @@ C_WHT='\[\e[37m\]'
 C_CLR='\[\e[39m\]'
 
 PS1_PROMPT=
-PS1_PROMPT="${PS1_PROMPT}${C_CYN}[\u@\h:\W("
-PS1_PROMPT="${PS1_PROMPT}${C_YEL}\$(__git_ps1_branch ' (%s)')"
-PS1_PROMPT="${PS1_PROMPT}${C_RED}\$(__git_ps1_status ' (%s)')"
-PS1_PROMPT="${PS1_PROMPT}${C_CYN})]\\$ "
+PS1_PROMPT="${PS1_PROMPT}${C_CYN}[\u@\h:\W"
+PS1_PROMPT="${PS1_PROMPT}${C_YEL}\$(__ps1_git_branch)"
+#PS1_PROMPT="${PS1_PROMPT}${C_RED}\$(__ps1_git_status)"
+PS1_PROMPT="${PS1_PROMPT}${C_CYN}]\\$ "
 PS1_PROMPT="${PS1_PROMPT}${C_CLR}"
 PS1="${PS1_PROMPT}"
 PS2='>'
