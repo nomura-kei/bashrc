@@ -4,14 +4,24 @@
 "  Copyright (c) 2009-2022  Nomura Kei
 " ======================================================================
 
+
+
 " ----------------------------------------------------------------------
-"  dein.vim 読み込み
+"  Plugin
 " ----------------------------------------------------------------------
-let s:script_dir = expand('<sfile>:p:h')	" 本ファイル位置取得
-let s:dein_script = s:script_dir . '/.vim/settings/dein.vim'
-if filereadable(s:dein_script)
-	exe("source" . s:dein_script)
-endif
+call plug#begin('~/.vim/plugged')
+Plug 'vim-jp/vimdoc-ja'
+Plug 'easymotion/vim-easymotion'
+Plug 'machakann/vim-sandwich'
+Plug 'posva/vim-vue'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/fern-hijack.vim'
+Plug 'yuki-yano/fern-preview.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
 
 " ----------------------------------------------------------------------
 "  基本設定
@@ -44,4 +54,20 @@ set laststatus=2
 
 " TermDebug
 packadd termdebug
+
+" ------------------------------------------------------------------------------
+"  Plugin 設定
+" ------------------------------------------------------------------------------
+" For fern, fern-preview
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+function! s:fern_settings() abort
+	nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+	nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+	nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+	nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+endfunction
+augroup fern-settings
+	autocmd!
+	autocmd FileType fern call s:fern_settings()
+augroup END
 
