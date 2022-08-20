@@ -37,7 +37,13 @@ set fileencoding=utf-8
 set fileencodings=utf-8,sjis,iso-2022-jp-3,euc-jisx0213,guess
 set fileformat=unix
 set ts=4 sw=4 sts=4
-set clipboard=unnamed,autoselect
+set signcolumn=yes
+if !has('nvim')
+    set clipboard=unnamed,autoselect
+endif
+if has('win32')
+    set guifont=HackGen\ Console\ NFJ:h11
+endif
 
 " ■ ステータスライン
 "   %<                          : 最低限ここまで表示
@@ -59,6 +65,7 @@ set laststatus=2
 
 " TermDebug
 packadd termdebug
+
 
 " ------------------------------------------------------------------------------
 "  Plugin 設定
