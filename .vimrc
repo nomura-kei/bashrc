@@ -17,9 +17,14 @@ Plug 'posva/vim-vue'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-hijack.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
 Plug 'yuki-yano/fern-preview.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do':'./install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -69,5 +74,11 @@ endfunction
 augroup fern-settings
 	autocmd!
 	autocmd FileType fern call s:fern_settings()
+augroup END
+let g:fern#renderer = 'nerdfont'
+augroup my-glyph-palette
+	autocmd! *
+	autocmd FileType fern call glyph_palette#apply()
+	autocmd FileType nerdtree,startify call glpyh_palette#apply()
 augroup END
 
