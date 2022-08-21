@@ -65,6 +65,7 @@ set laststatus=2
 
 " TermDebug
 packadd termdebug
+set mouse=a
 
 
 " ------------------------------------------------------------------------------
