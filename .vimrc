@@ -33,6 +33,7 @@ call plug#end()
 " ----------------------------------------------------------------------
 syntax enable
 set number
+set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,iso-2022-jp-3,euc-jisx0213,guess
 set fileformat=unix
