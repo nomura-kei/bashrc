@@ -8,6 +8,8 @@
 !/.vim/settings
 !/.vim/rc
 !/.vimrc
+!/.config
+!/.config/*
 /.vim/cache
 /.vim/.cache
 

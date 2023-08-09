@@ -9,6 +9,12 @@
 " ----------------------------------------------------------------------
 "  Plugin
 " ----------------------------------------------------------------------
+"if !has("nvim")
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plugin.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
 call plug#begin('~/.vim/plugged')
 Plug 'vim-jp/vimdoc-ja'
 Plug 'easymotion/vim-easymotion'
@@ -25,6 +31,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do':'./install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'ojroques/vim-oscyank'
 call plug#end()
 
 
@@ -41,6 +48,7 @@ set ts=4 sw=4 sts=4
 set signcolumn=yes
 if !has('nvim')
     set clipboard=unnamed,autoselect
+	set ttymouse=xterm2
 endif
 if has('win32')
     set guifont=HackGen\ Console\ NFJ:h11
@@ -90,4 +98,27 @@ augroup my-glyph-palette
 	autocmd FileType fern call glyph_palette#apply()
 	autocmd FileType nerdtree,startify call glpyh_palette#apply()
 augroup END
+" For oscyank
+augroup osc52
+    autocmd!
+    autocmd TextYankPost *
+			\ if v:event.operator is 'y' |
+			\ execute 'OSCYankRegister' |
+			\ endif
+augroup END
+
+" For ClearTerminal
+if has('nvim')
+function! ClearTerminal()
+	set scrollback=1
+	let &g:scrollback=1
+	echo &scrollback
+	call feedkeys("\i")
+	call feedkeys("clear\<CR>")
+	call feedkeys("\<C-\>\<C-n>")
+	call feedkeys("\i")
+	sleep 3
+	let &scrollback=s:scrolll_value
+endfunction
+endif
 
