@@ -17,7 +17,7 @@ cp bashrc/.bashrc .
 cp -r bashrc/.bashrc.d .
 cp bashrc/.vimrc .
 cp -r bashrc/.vim .
-cp bashrc/.config .
+cp -r bashrc/.config .
 ```
 
 3. vim setup
