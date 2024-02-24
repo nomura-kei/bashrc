@@ -14,8 +14,8 @@ cp .vimrc  .vimrc.org
 ```
 git clone https://github.com/nomura-kei/bashrc.git
 cp bashrc/.bashrc .
-cp bashrc/.bashrc.d .
-cp -r bashrc/.vimrc .
+cp -r bashrc/.bashrc.d .
+cp bashrc/.vimrc .
 cp -r bashrc/.vim .
 cp bashrc/.config .
 ```
